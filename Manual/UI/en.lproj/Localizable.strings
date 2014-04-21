@@ -6,13 +6,13 @@
  * modification, are permitted provided that the following conditions are met:
  * 
  *  -   Redistributions of source code must retain the above copyright notice,
- *      this list of conditions and the following disclaimer.
+ *	  this list of conditions and the following disclaimer.
  *  -   Redistributions in binary form must reproduce the above copyright
- *      notice, this list of conditions and the following disclaimer in the
- *      documentation and/or other materials provided with the distribution.
+ *	  notice, this list of conditions and the following disclaimer in the
+ *	  documentation and/or other materials provided with the distribution.
  *  -   Neither the name of 'Jean-David Gadina' nor the names of its
- *      contributors may be used to endorse or promote products derived from
- *      this software without specific prior written permission.
+ *	  contributors may be used to endorse or promote products derived from
+ *	  this software without specific prior written permission.
  * 
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
@@ -28,37 +28,37 @@
  ******************************************************************************/
 
 /*!
- * @file        Localizable.strings
+ * @file		Localizable.strings
  * @copyright   (c) 2013, Jean-David Gadina - www.xs-labs.com
- * @abstract    ...
+ * @abstract	...
  */
 
-"AllSections"           = "All sections";
-"Section"               = "Section %@";
-"Section-1"             = "General user commands";
-"Section-1m"            = "DTrace tools";
-"Section-1ssl"          = "OpenSSL tools";
-"Section-1tcl"          = "Tcl tools";
-"Section-2"             = "UNIX system calls";
-"Section-3"             = "C library routines";
-"Section-3cc"           = "Common Crypto API";
-"Section-3pcap"         = "Packet capture library";
-"Section-3pm"           = "Perl modules";
-"Section-3ssl"          = "OpenSSL library routines";
-"Section-3tcl"          = "Tcl/Tk library routines";
-"Section-3x"            = "Curses-related library routines";
-"Section-4"             = "Special files and sockets";
-"Section-5"             = "File formats and conventions";
-"Section-5ssl"          = "SSL-specific configuration file formats";
-"Section-6"             = "Games";
-"Section-7"             = "Miscellaneous documentation";
-"Section-7ssl"          = "Miscellaneous SSL documentation";
-"Section-8"             = "System administration tools and techniques";
-"Section-9"             = "Kernel and programming style";
-"Section-n"             = "Tcl/Tk";
-"Section-ntcl"          = "Tcl/Tk";
-"Section-plist"         = "Property lists";
-"Section-legacy"        = "Legacy documentation";
-"UnknownSection"        = "Unknown section";
-"WindowTitle"           = "Manual Pages";
-"Version"               = "Version %@";
+"AllSections"		   = "All sections";
+"Section"			   = "Section %@";
+"Section-1"			 = "General user commands";
+"Section-1m"			= "DTrace tools";
+"Section-1ssl"		  = "OpenSSL tools";
+"Section-1tcl"		  = "Tcl tools";
+"Section-2"			 = "UNIX system calls";
+"Section-3"			 = "C library routines";
+"Section-3cc"		   = "Common Crypto API";
+"Section-3pcap"		 = "Packet capture library";
+"Section-3pm"		   = "Perl modules";
+"Section-3ssl"		  = "OpenSSL library routines";
+"Section-3tcl"		  = "Tcl/Tk library routines";
+"Section-3x"			= "Curses-related library routines";
+"Section-4"			 = "Special files and sockets";
+"Section-5"			 = "File formats and conventions";
+"Section-5ssl"		  = "SSL-specific configuration file formats";
+"Section-6"			 = "Games";
+"Section-7"			 = "Miscellaneous documentation";
+"Section-7ssl"		  = "Miscellaneous SSL documentation";
+"Section-8"			 = "System administration tools and techniques";
+"Section-9"			 = "Kernel and programming style";
+"Section-n"			 = "Tcl/Tk";
+"Section-ntcl"		  = "Tcl/Tk";
+"Section-plist"		 = "Property lists";
+"Section-legacy"		= "Legacy documentation";
+"UnknownSection"		= "Unknown section";
+"WindowTitle"		   = "Manual Pages";
+"Version"			   = "Version %@";

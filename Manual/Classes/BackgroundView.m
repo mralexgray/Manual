@@ -1,19 +1,19 @@
 /*******************************************************************************
  * Copyright (c) 2012, Jean-David Gadina - www.xs-labs.com
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- * 
+ *
  *  -   Redistributions of source code must retain the above copyright notice,
- *      this list of conditions and the following disclaimer.
+ *	  this list of conditions and the following disclaimer.
  *  -   Redistributions in binary form must reproduce the above copyright
- *      notice, this list of conditions and the following disclaimer in the
- *      documentation and/or other materials provided with the distribution.
+ *	  notice, this list of conditions and the following disclaimer in the
+ *	  documentation and/or other materials provided with the distribution.
  *  -   Neither the name of 'Jean-David Gadina' nor the names of its
- *      contributors may be used to endorse or promote products derived from
- *      this software without specific prior written permission.
- * 
+ *	  contributors may be used to endorse or promote products derived from
+ *	  this software without specific prior written permission.
+ *
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
  * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
  * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
@@ -31,95 +31,82 @@
 
 @implementation BackgroundView
 
-- ( void )dealloc
-{
-    [ _backgroundColor  release ];
-    [ _borderColor      release ];
-    
-    [ super dealloc ];
+- (void)dealloc {
+  [_backgroundColor release];
+  [_borderColor release];
+
+  [super dealloc];
 }
 
-- ( NSColor * )backgroundColor
-{
-    @synchronized( self )
-    {
-        return _backgroundColor;
-    }
+- (NSColor *)backgroundColor {
+  @synchronized(self) {
+    return _backgroundColor;
+  }
 }
 
-- ( void )setBackgroundColor: ( NSColor * )color
-{
-    @synchronized( self )
-    {
-        if( color != _backgroundColor )
-        {
-            [ _backgroundColor release ];
-            
-            _backgroundColor = [ color retain ];
-            
-            [ self setNeedsDisplay: YES ];
-        }
+- (void)setBackgroundColor:(NSColor *)color {
+  @synchronized(self) {
+    if (color != _backgroundColor) {
+      [_backgroundColor release];
+
+      _backgroundColor = [color retain];
+
+      [self setNeedsDisplay:YES];
     }
+  }
 }
 
-- ( NSColor * )borderColor
-{
-    @synchronized( self )
-    {
-        return _borderColor;
-    }
+- (NSColor *)borderColor {
+  @synchronized(self) {
+    return _borderColor;
+  }
 }
 
-- ( void )setBorderColor: ( NSColor * )color
-{
-    @synchronized( self )
-    {
-        if( color != _borderColor )
-        {
-            [ _borderColor release ];
-            
-            _borderColor = [ color retain ];
-            
-            [ self setNeedsDisplay: YES ];
-        }
+- (void)setBorderColor:(NSColor *)color {
+  @synchronized(self) {
+    if (color != _borderColor) {
+      [_borderColor release];
+
+      _borderColor = [color retain];
+
+      [self setNeedsDisplay:YES];
     }
+  }
 }
 
-- ( void )drawRect: ( NSRect )rect
-{
-    if( _backgroundColor != nil )
+- (void)drawRect:(NSRect)rect {
+  if (_backgroundColor != nil) {
+    [_backgroundColor setFill];
+
+    NSRectFill(rect);
+  }
+
+  if (_borderColor != nil) {
     {
-        [ _backgroundColor setFill ];
-        
-        NSRectFill( rect );
+      NSBezierPath *path;
+      NSGradient *gradient;
+      NSRect subrect;
+
+      subrect = rect;
+      subrect.origin.x += 1;
+      subrect.origin.y += 1;
+      subrect.size.width -= 2;
+      subrect.size.height -= 2;
+
+      path = [NSBezierPath bezierPathWithRect:rect];
+
+      [path appendBezierPath:[NSBezierPath bezierPathWithRect:subrect]];
+      [path setWindingRule:NSEvenOddWindingRule];
+
+      gradient = [[NSGradient alloc]
+          initWithColorsAndLocations:_borderColor, (CGFloat)0, nil];
+
+      [gradient drawInBezierPath:path angle:(CGFloat)0];
+      [gradient release];
     }
-    
-    if( _borderColor != nil )
-    {
-        {
-            NSBezierPath * path;
-            NSGradient   * gradient;
-            NSRect         subrect;
-            
-            subrect              = rect;
-            subrect.origin.x    += 1;
-            subrect.origin.y    += 1;
-            subrect.size.width  -= 2;
-            subrect.size.height -= 2;
-            
-            path = [ NSBezierPath bezierPathWithRect: rect ];
-            
-            [ path appendBezierPath: [ NSBezierPath bezierPathWithRect: subrect ] ];
-            [ path setWindingRule: NSEvenOddWindingRule ];
-            
-            gradient = [ [ NSGradient alloc ] initWithColorsAndLocations: _borderColor, ( CGFloat )0, nil ];
-            
-            [ gradient drawInBezierPath: path angle: ( CGFloat )0 ];
-            [ gradient release ];
-        }
-    }
-    
-    [ super drawRect: rect ];
+  }
+
+  [super drawRect:rect];
 }
 
 @end
